@@ -1,9 +1,31 @@
 const yaml = require("js-yaml");
-const { DateTime } = require("luxon");
+const {DateTime} = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
+const markdownit = require('markdown-it');
+var markdownItAttrs = require('markdown-it-attrs');
 
 module.exports = function (eleventyConfig) {
+
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true
+  };
+  let markdownLib = markdownit(options).use(markdownItAttrs);
+  eleventyConfig.setLibrary("md", markdownLib);
+
+
+  eleventyConfig.addFilter("text", function (text) {
+    const markdownit = require('markdown-it');
+
+    const md = markdownit();
+    const result = md.render(text);
+    return result;
+
+  });
+
+
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);
 
@@ -12,8 +34,8 @@ module.exports = function (eleventyConfig) {
 
   // human readable date
   eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
+    return DateTime.fromJSDate(dateObj, {zone: "utc"}).toFormat(
+        "dd LLL yyyy"
     );
   });
 
@@ -29,7 +51,7 @@ module.exports = function (eleventyConfig) {
     "./src/admin/config.yml": "./admin/config.yml",
     "./node_modules/alpinejs/dist/cdn.min.js": "./static/js/alpine.js",
     "./node_modules/prismjs/themes/prism-tomorrow.css":
-      "./static/css/prism-tomorrow.css",
+        "./static/css/prism-tomorrow.css",
   });
 
   // Copy Image Folder to /_site
@@ -53,6 +75,7 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+
   // Let Eleventy transform HTML files as nunjucks
   // So that we can use .html instead of .njk
   return {
@@ -61,4 +84,9 @@ module.exports = function (eleventyConfig) {
     },
     htmlTemplateEngine: "njk",
   };
+
+
 };
+
+
+
