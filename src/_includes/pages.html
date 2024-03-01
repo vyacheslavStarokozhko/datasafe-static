@@ -1,0 +1,43 @@
+---
+layout: default
+prism: true
+---
+
+
+<div class="hero">
+    <div class="container align-center">
+        <div class="hero__description">
+            <div class="markdown">
+                {{caption | text}}
+            </div>
+        </div>
+        <div class="hero__image">
+            <img src="{{thumbnail}}" alt="Tom">
+        </div>
+    </div>
+</div>
+<div class="cta">
+    <div class="container page-cta fdc">
+       <div class="markdown">
+           {{description | text}}
+       </div>
+
+    </div>
+</div>
+<div class="main-content">
+    <div class="container fdc">
+        <div class="markdown">
+            {{page_body | text}}
+        </div>
+    </div>
+</div>
+<div class="bottom-banner">
+    <div class="container jc-c">
+        <div class="bottom-banner__text">
+            <div class="markdown">
+                {{bottom | text}} 
+            </div>
+
+        </div>
+    </div>
+</div>

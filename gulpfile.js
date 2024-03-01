@@ -10,7 +10,7 @@ var concat = require('gulp-concat');
 // const markdown = require("gulp-markdown");
 
 function jsonColorCss() {
-    return src("./src/_data/styling/colors/colors.json").pipe(
+    return src("./src/_data/styling/colors/colors.json", {allowEmpty: true}).pipe(
         jsonToSass({
             sass: "./src/scss/vars/_color.scss",
             separator: "",
@@ -19,7 +19,7 @@ function jsonColorCss() {
 }
 
 function jsonSizingCss() {
-    return src("./src/_data/styling/sizing/sizing.json").pipe(
+    return src("./src/_data/styling/sizing/sizing.json", {allowEmpty: true}).pipe(
         jsonToSass({
             sass: "./src/scss/vars/_sizing.scss",
             separator: "",
@@ -28,7 +28,7 @@ function jsonSizingCss() {
 }
 
 function jsonTypographyCss() {
-    return src("./src/_data/styling/typography/*.json")
+    return src("./src/_data/styling/typography/*.json", {allowEmpty: true})
         .pipe(
             jsonToSass({
                 sass: "./src/scss/vars/_typography.scss",

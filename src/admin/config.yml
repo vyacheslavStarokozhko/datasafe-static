@@ -12,7 +12,209 @@ public_folder: "/static/img"
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
-  - label: "Blog"
+  - label: "Site Settings"
+    name: "site_settings"
+    editor:
+      preview: false
+    files:
+      - label: "Meta Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Author, name: author, widget: string }
+          - { label: URL, name: url, widget: string }
+  - label: "Colors"
+    name: "colors"
+    editor:
+      preview: false
+    files:
+      - label: "Colors"
+        name: "color_styles"
+        file: "src/_data/styling/colors/colors.json"
+        fields:
+          - { label: Container Background, name: containerColor, widget: color , required: false }
+          - { label: Primary, name: primary, widget: color , required: false }
+          - { label: Secondary, name: Secondary, widget: color , required: false }
+          - { label: Accent, name: accent, widget: color , required: false }
+          - { label: Success, name: success, widget: color , required: false }
+          - { label: Warning, name: warning, widget: color , required: false }
+          - { label: Danger, name: danger, widget: color , required: false }
+          - { label: Socials Background, name: socialsBackground, widget: color , required: false }
+          - { label: SocialsColor, name: socialsColor, widget: color , required: false }
+  - label: "Sizing"
+    name: "sizing"
+    editor:
+      preview: false
+    files:
+      - label: "Sizing"
+        name: "sizing_styles"
+        file: "src/_data/styling/sizing/sizing.json"
+        fields:
+          - { label: Container Width, name: globalWidth, widget: number }
+          - { label: Container padding, name: containerPadding, widget: number }
+  - label: "Typography"
+    name: "typography"
+    editor:
+      preview: false
+    files:
+      - label: "Body"
+        name: "body_text"
+        file: "src/_data/styling/typography/body.json"
+        fields:
+          - { label: "Font Size",name: "body_size", widget: number, default: 16}
+          - { label: "Font Family",name: "body_font", widget: string, default: "Open Sans,sans-serif"}
+          - { label: "Font Weight",name: "body_weight", widget: number, default: 400}
+          - { label: "Line Height",name: "body_height", widget: string, default: "1.2"}
+          - { label: Body, name: body, widget: color , default: "#000"}
+      - label: "Link"
+        name: "link"
+        file: "src/_data/styling/typography/link.json"
+        fields:
+          - { label: "Font Size",name: "link_size", widget: number , default: 16 }
+          - { label: "Font Family",name: "link_font", widget: string , default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "link_weight", widget: number , default: 400 }
+          - { label: "Line Height",name: "link_height", widget: string , default: "1.2" }
+          - { label: Link, name: link, widget: color , required: true , default: "#000" }
+          - { label: Link Hover, name: linkHover, widget: color , default: "#000" }
+      - label: "Button"
+        name: "button"
+        file: "src/_data/styling/typography/button.json"
+        fields:
+          - { label: "Font Size",name: "button_size", widget: number, default: 16}
+          - { label: "Font Family",name: "button_font", widget: string, default: "Open Sans,sans-serif"}
+          - { label: "Font Weight",name: "button_weight", widget: number, default: 400 }
+          - { label: "Line Height",name: "button_height", widget: string, default: "1.2"}
+          - { label: Button, name: button, widget: color , default: "#000"}
+          - { label: Link Hover, name: buttonHover, widget: color , default: "#000"}
+          - { label: Background, name: background, widget: color ,  default: "#000"}
+          - { label: Background Hover, name: backgroundHover, widget: color , default: "#000"}
+      - label: "h1"
+        name: "h1"
+        file: "src/_data/styling/typography/h1.json"
+        fields:
+          - { label: "Font Size",name: "h1_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h1_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h1_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h1_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h1_color", widget: color , default: "#000" }
+      - label: "h2"
+        name: "h2"
+        file: "src/_data/styling/typography/h2.json"
+        fields:
+          - { label: "Font Size",name: "h2_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h2_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h2_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h2_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h2_color", widget: color , default: "#000" }
+      - label: "h3"
+        name: "h3"
+        file: "src/_data/styling/typography/h3.json"
+        fields:
+          - { label: "Font Size",name: "h3_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h3_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h3_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h3_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h3_color", widget: color  , default: "#000" }
+      - label: "h4"
+        name: "h4"
+        file: "src/_data/styling/typography/h4.json"
+        fields:
+          - { label: "Font Size",name: "h4_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h4_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h4_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h4_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h4_color", widget: color  , default: "#000" }
+      - label: "h5"
+        name: "h5"
+        file: "src/_data/styling/typography/h5.json"
+        fields:
+          - { label: "Font Size",name: "h5_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h5_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h5_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h5_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h5_color", widget: color , default: "#000"  }
+      - label: "h6"
+        name: "h6"
+        file: "src/_data/styling/typography/h6.json"
+        fields:
+          - { label: "Font Size",name: "h6_size", widget: number, default: 16 }
+          - { label: "Font Family",name: "h6_font", widget: string, default: "Open Sans,sans-serif" }
+          - { label: "Font Weight",name: "h6_weight", widget: number, default: 700 }
+          - { label: "Line Height",name: "h6_height", widget: string, default: "1.2" }
+          - { label: "Color", name: "h6_color", widget: color , default: "#000"  }
+  - label: "Forms"
+    name: "forms"
+    editor:
+      preview: false
+    files:
+      - label: "Quick Update"
+        name: "quick_update"
+        file: "src/_data/quick_update.yaml"
+        fields:
+          - {label: "caption", name: "caption", widget: "markdown",required: false }
+          - { label: Form Logo, name: form_logo, widget: image }
+          - { label: Form Url, name: form_url, widget: string }
+      - label: "Contact Us"
+        name: "contact_us"
+        file: "src/_data/contact_us.yaml"
+        fields:
+          - { label: "caption", name: "caption", widget: "markdown",required: false }
+      - label: "Subscribe Today"
+        name: "subscribe_today"
+        file: "src/_data/subscribe_today.yaml"
+        fields:
+          - { label: "Caption", name: "caption", widget: "markdown",required: false }
+          - { label: "Sub Caption",name: "sub_caption", widget: "string", required: false }
+      - label: "Subscribe Advisory"
+        name: "subscribe_advisory"
+        file: "src/_data/subscribe_advisory.yaml"
+        fields:
+          - { label: "Caption", name: "caption", widget: "markdown",required: false }
+          - { label: "Sub Caption",name: "sub_caption", widget: "string", required: false }
+  - label: "Pages"
+    name: "pages"
+    folder: "src/pages"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: string}
+      - { label: "Permalink", name: "permalink", widget: string}
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "markdown" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Body", name: "page_body", widget: "markdown" }
+      - { label: "Bottom", name: "bottom", widget: "markdown" }
+      - label: Tags
+        name: page_tag
+        widget: select
+        multiple: true
+        create: true
+        options: [ "Tag 1", "Tag 2" ]
+  - label: "Podcasts"
+    name: "podcasts"
+    folder: "src/podcasts"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Icon", name: "icon", widget: "image" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "podcast_body", widget: "markdown" }
+      - { label: "Audio", name: "audio", widget: "file"}
+      - label: Category
+        name: podcast_category
+        widget: select
+        multiple: true
+        create: true
+        options: [ "Category 1", "Category 2" ]
+
+  - label: "Articles"
     name: "blog"
     folder: "src/posts"
     create: true
@@ -23,46 +225,150 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "post_body", widget: "markdown" }
       - widget: select
         label: "tags"
         name: "tags"
         multiple: true
         create: true
-        options: ["Tags", "created", "from", "config.yml"]
-  - label: "Settings"
-    name: "settings"
+        options: [ "Tags", "created", "from", "config.yml" ]
+
+  - label: "Global"
+    name: "global"
     editor:
       preview: false
     files:
-      - label: "Navigation"
-        name: "items"
-        file: "src/_data/navigation.yaml"
+      - label: "Header"
+        name: "header"
+        file: "src/_data/header.yaml"
         fields:
-          - label: Nav Items
-            name: items
+          - { label: Logo, name: header_logo, widget: image }
+          - label: Socials
+            name: socials
             widget: list
-            allow_add: false
+            allow_add: true
             collapsed: false
             fields:
-              - { label: Title, name: text, widget: string }
-              - { label: URL, name: url, widget: string }
-      - label: "Quick Links"
-        name: "links"
-        file: "src/_data/quicklinks.yaml"
-        fields:
-          - label: Nav Items
-            name: links
+              - { label: Url, name: url, widget: string }
+              - { label: Icon, name: icon, widget: string }
+          - label: Header Links
+            name: header_links
             widget: list
+            allow_add: true
             collapsed: false
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: URL, name: url, widget: string }
-              - { label: Description, name: desc, widget: string }
-      - label: "Meta Settings"
-        name: "settings"
-        file: "src/_data/settings.yaml"
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+              - label: Second Links
+                name: second_links
+                widget: list
+                allow_add: true
+                collapsed: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Url, name: url, widget: string }
+                  - label: Third Links
+                    name: third_links
+                    widget: list
+                    allow_add: true
+                    collapsed: false
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - { label: Url, name: url, widget: string }
+                      - label: Fourth Links
+                        name: fourth_links
+                        widget: list
+                        allow_add: true
+                        collapsed: false
+                        fields:
+                          - { label: Label, name: label, widget: string }
+                          - { label: Url, name: url, widget: string }
+      - label: "Footer"
+        name: "footer"
+        file: "src/_data/footer.yaml"
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Author, name: author, widget: string }
-          - { label: URL, name: url, widget: string }
+          - { label: Logo, name: footer_logo, widget: image }
+          - { label: Caption, name: footer_caption,description: '@year will be replaced by the current year', widget: string }
+          - label: Footer Links
+            name: footer_links
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+  - label: 'Home'
+    name: home
+    editor:
+      preview: false
+    files:
+      - label: "Hero"
+        name: "home_hero"
+        file: "src/_data/home_hero.yaml"
+        fields:
+          - { label: Title, name: text, widget: string }
+          - { label: Caption, name: caption, widget: markdown }
+          - { label: Image, name: image, widget: image }
+      - label: "CTA"
+        name: "home_cta"
+        file: "src/_data/home_cta.yaml"
+        fields:
+          - { label: Title, name: label_cta, widget: string }
+          - label: CTA Links
+            name: ctas
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+      - label: "Form"
+        name: "home_form"
+        file: "src/_data/home_form.yaml"
+        fields:
+          - label: Form Links
+            name: form_links
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Url, name: url, widget: string }
+              - { label: Logo, name: form_link_logo, widget: image }
+      - label: "Bottom Banner"
+        name: "home_bottom_banner"
+        file: "src/_data/home_bottom_banner.yaml"
+        fields:
+          - { label: Caption, name: home_bottom_caption, widget: markdown }
+  - label: 'Templates'
+    name: "templates"
+    editor:
+      preview: false
+    files:
+      - label: "Music Share"
+        name: "music_share"
+        file: "src/_data/music_share.yaml"
+        fields:
+          - label: Share Links
+            name: share_links
+            widget: list
+            allow_add: true
+            collapsed: true
+            fields:
+              - { label: Icon, name: icon, widget: image }
+              - { label: Url, name: url, widget: string }
+  - label: 'Sidebar'
+    name: "sidebar"
+    editor:
+      preview: false
+    files:
+      - label: "Form"
+        name: "sidebar_form"
+        file: "src/_data/sidebar_form.yaml"
+        fields:
+          - label: Form
+            name: sidebar_form
+            widget: select
+            multiple: false
+            create: false
+            options: [ "Quick Update", "Subscribe Today"]

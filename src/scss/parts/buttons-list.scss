@@ -1,0 +1,20 @@
+.cta{
+	padding: 24px;
+	background-color: $black;
+	&__title{
+		h2{
+			color: $white;
+		}
+	}
+	ul{
+		margin-top: 20px;
+	}
+
+	.page-cta{
+		color: $white;
+		ul{
+
+		}
+	}
+
+}

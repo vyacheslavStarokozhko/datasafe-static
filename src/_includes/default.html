@@ -10,21 +10,24 @@
     {% if description %}
       <meta name="description" content="{{description}}"/>
     {% endif %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     {% if prism == true %}
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
+
   </head>
+
   <body>
     {% include "./partials/navbar.html" %}
 
     {{ content | safe }}
 
     {% include "./partials/footer.html" %}
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/js/alpine.js"></script>
-
+    <script src="/static/js/script.js"></script>
     {% if path == "home" %}
       <!-- Netlify Identity Widget -->
       <!-- Needed only if you are using Netlify Identity feature -->
